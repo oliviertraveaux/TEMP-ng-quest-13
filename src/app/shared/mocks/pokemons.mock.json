@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Bulbasaur",
+    "description": "Un Pokémon de type Plante et Poison. Il a une tige sur son dos qui peut absorber l'énergie du soleil.",
+    "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"
+  },
+  {
+    "name": "Charmander",
+    "description": "Un Pokémon de type Feu. Il a une queue enflammée qui brûle plus fort lorsqu'il est en colère.",
+    "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png"
+  },
+  {
+    "name": "Squirtle",
+    "description": "Un Pokémon de type Eau. Il peut cracher de l'eau de sa bouche sous pression.",
+    "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png"
+  },
+  {
+    "name": "Pikachu",
+    "description": "Un Pokémon de type Électrik. Il peut générer de l'électricité en frottant ses joues.",
+    "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"
+  },
+  {
+    "name": "Eevee",
+    "description": "Un Pokémon de type Normal. Il peut évoluer en différentes formes en fonction de son environnement.",
+    "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/133.png"
+  },
+  {
+    "name": "Mewtwo",
+    "description": "Un Pokémon légendaire de type Psy. Il est connu pour sa grande intelligence et sa puissance.",
+    "imageUrl": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/150.png"
+  }
+]
