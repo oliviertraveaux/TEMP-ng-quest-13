@@ -15,6 +15,11 @@
         <p class="card-text">
           {{ selectedPokemon.description }}
         </p>
+        <a
+          [routerLink]="'/pokemon/' + selectedPokemon.name"
+          class="btn btn-light">
+          Voir le détail
+        </a>
       </div>
     </div>
   </div>

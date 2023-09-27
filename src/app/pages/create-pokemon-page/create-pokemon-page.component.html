@@ -4,21 +4,60 @@
       <mat-form-field>
         <mat-label>Nom</mat-label>
         <input matInput formControlName="name" />
+        <mat-error
+          *ngIf="
+            (createPokemonForm.get('name')?.invalid ||
+              createPokemonForm.get('name')?.hasError('validValidator')) &&
+            (createPokemonForm.get('name')?.dirty ||
+              createPokemonForm.get('name')?.touched)
+          ">
+          {{
+            createPokemonForm.get('name')?.hasError('validValidator')
+              ? 'Ce nom est déjà pris'
+              : 'Un nom valide est requis'
+          }}
+        </mat-error>
       </mat-form-field>
       <mat-form-field>
         <mat-label>Description</mat-label>
         <textarea matInput formControlName="description"></textarea>
+        <mat-error
+          *ngIf="
+            (createPokemonForm.get('description')?.invalid ||
+              createPokemonForm.get('description')?.hasError('minlength')) &&
+            (createPokemonForm.get('description')?.dirty ||
+              createPokemonForm.get('description')?.touched)
+          ">
+          {{
+            createPokemonForm.get('description')?.hasError('minlength')
+              ? 'La description doit faire plus de 2 caractères'
+              : 'Une description est requise'
+          }}
+        </mat-error>
       </mat-form-field>
       <mat-form-field>
         <mat-label>Image</mat-label>
         <input matInput formControlName="imageUrl" />
+        <mat-error
+          *ngIf="
+            (createPokemonForm.get('imageUrl')?.invalid ||
+              createPokemonForm.get('imageUrl')?.hasError('pattern')) &&
+            (createPokemonForm.get('imageUrl')?.dirty ||
+              createPokemonForm.get('imageUrl')?.touched)
+          ">
+          {{
+            createPokemonForm.get('imageUrl')?.hasError('pattern')
+              ? 'Cela ne ressemble pas à une Url'
+              : 'Un URL est requis'
+          }}
+        </mat-error>
       </mat-form-field>
       <button
         class="w-100 mb-3"
         mat-stroked-button
         color="primary"
         type="submit"
-        [disabled]="createPokemonForm.invalid">
+        [disabled]="this.createPokemonForm.invalid">
         Save
       </button>
     </form>

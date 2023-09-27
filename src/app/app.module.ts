@@ -14,9 +14,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Component } from '@angular/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import {
+  MAT_FORM_FIELD_DEFAULT_OPTIONS,
+  MatFormFieldModule,
+} from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { PokemonPageComponent } from './pages/pokemon-page/pokemon-page.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +30,7 @@ import { MatButtonModule } from '@angular/material/button';
     PokemonDetailComponent,
     CreatePokemonPageComponent,
     MenuComponent,
+    PokemonPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,12 @@ import { MatButtonModule } from '@angular/material/button';
     ReactiveFormsModule,
     MatButtonModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: { appearance: 'outline' },
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
