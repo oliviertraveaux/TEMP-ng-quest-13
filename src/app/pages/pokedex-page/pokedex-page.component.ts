@@ -16,18 +16,16 @@ export class PokedexPageComponent implements OnInit {
   public selectedPokemon!: Pokemon | null;
 
   ngOnInit(): void {
-    this.pokedexService.getPokemons();
+    this.pokedexService.selectedPokemon$
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((pokemon: Pokemon | null) => {
+        this.selectedPokemon = pokemon;
+      });
 
     this.pokedexService.pokemons$
       .pipe(takeUntilDestroyed(this.destroyRef)) // Permet de unsubscribe lorsque le composant est détruit sans passer par ngOndestroy
       .subscribe((pokemons: Pokemon[]) => {
         this.pokemons = pokemons;
-      });
-
-    this.pokedexService.selectedPokemon$
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((pokemon: Pokemon | null) => {
-        this.selectedPokemon = pokemon;
       });
   }
 }

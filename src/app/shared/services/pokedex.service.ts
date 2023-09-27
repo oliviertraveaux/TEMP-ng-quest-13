@@ -26,4 +26,9 @@ export class PokedexService {
       this.selectedPokemon$.next(pokemon[index])
     );
   }
+
+  addPokemon(pokemon: Pokemon): void {
+    const newPokemons = [pokemon, ...this.pokemons$.getValue()];
+    this.pokemons$.next(newPokemons);
+  }
 }

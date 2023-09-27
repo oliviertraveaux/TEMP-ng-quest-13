@@ -1,4 +1,47 @@
-<div class="row bg-info">
-  <h2>create-pokemon-page works!</h2>
-  <div class="col-12 bg-light"></div>
+<div class="container d-flex flex-column align-items-center my-5">
+  <div class="col-6">
+    <form class="row" [formGroup]="createPokemonForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label>Nom</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Image</mat-label>
+        <input matInput formControlName="imageUrl" />
+      </mat-form-field>
+      <button
+        class="w-100 mb-3"
+        mat-stroked-button
+        color="primary"
+        type="submit"
+        [disabled]="createPokemonForm.invalid">
+        Save
+      </button>
+    </form>
+  </div>
+  <div *ngFor="let pokemon of pokemons" class="card my-2 col-6">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img
+          ngSrc="{{ pokemon.imageUrl }}"
+          width="150"
+          height="150"
+          style="object-fit: contain"
+          class="card-img"
+          alt="{{ pokemon.name }}" />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h4 class="card-title">{{ pokemon.name }}</h4>
+          <p class="card-text">
+            {{ pokemon.description }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
