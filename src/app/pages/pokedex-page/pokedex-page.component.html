@@ -1,9 +1,9 @@
-<div class="row bg-info">
-  <h2>Liste des pokemon</h2>
-  <div class="col-8 bg-light">
-    <app-pokemon-list />
+<div class="row">
+  <h2 class="my-2">Liste des pokemon</h2>
+  <div class="col-6 bg-light">
+    <app-pokemon-list [pokemons]="pokemons" />
   </div>
-  <div class="col-4 bg-danger">
-    <app-pokemon-detail />
+  <div class="col-6 bg-light">
+    <app-pokemon-detail [selectedPokemon]="selectedPokemon" />
   </div>
 </div>

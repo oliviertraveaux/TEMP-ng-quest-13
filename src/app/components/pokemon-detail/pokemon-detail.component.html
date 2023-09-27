@@ -1,1 +1,20 @@
-<p>pokemon-detail works!</p>
+<div *ngIf="selectedPokemon" class="card mb-3" style="max-width: 540px">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img
+        ngSrc="{{ selectedPokemon.imageUrl }}"
+        width="150"
+        height="150"
+        class="card-img"
+        alt="{{ selectedPokemon.name }}" />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h4 class="card-title">{{ selectedPokemon.name }}</h4>
+        <p class="card-text">
+          {{ selectedPokemon.description }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
