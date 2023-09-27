@@ -1,4 +1,4 @@
-import { DestroyRef, inject, Injectable } from '@angular/core';
+import { DestroyRef, inject, Injectable, OnInit } from '@angular/core';
 import { Pokemon } from '../models/pokemon.model';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -33,5 +33,9 @@ export class PokedexService {
   addPokemon(pokemon: Pokemon): void {
     const newPokemons = [pokemon, ...this.pokemons$.getValue()];
     this.pokemons$.next(newPokemons);
+  }
+
+  constructor() {
+    this.getPokemons();
   }
 }
