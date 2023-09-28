@@ -3,53 +3,30 @@
     <form class="row" [formGroup]="createPokemonForm" (ngSubmit)="onSubmit()">
       <mat-form-field>
         <mat-label>Nom</mat-label>
+
         <input matInput formControlName="name" />
-        <mat-error
-          *ngIf="
-            (createPokemonForm.get('name')?.invalid ||
-              createPokemonForm.get('name')?.hasError('validValidator')) &&
-            (createPokemonForm.get('name')?.dirty ||
-              createPokemonForm.get('name')?.touched)
-          ">
-          {{
-            createPokemonForm.get('name')?.hasError('validValidator')
-              ? 'Ce nom est déjà pris'
-              : 'Un nom valide est requis'
-          }}
+        <!--        Affiche l'erreur si le champ est invalid et dirty / touched-->
+        <mat-error *ngIf="isFieldInvalid('name')">
+          <!--        récupère le message d'erreur selon le nom du champ et du validateur-->
+          {{ getErrorMessage('name', 'required') }}
+          {{ getErrorMessage('name', 'minlength') }}
+          {{ getErrorMessage('name', 'validValidator') }}
         </mat-error>
       </mat-form-field>
       <mat-form-field>
         <mat-label>Description</mat-label>
         <textarea matInput formControlName="description"></textarea>
-        <mat-error
-          *ngIf="
-            (createPokemonForm.get('description')?.invalid ||
-              createPokemonForm.get('description')?.hasError('minlength')) &&
-            (createPokemonForm.get('description')?.dirty ||
-              createPokemonForm.get('description')?.touched)
-          ">
-          {{
-            createPokemonForm.get('description')?.hasError('minlength')
-              ? 'La description doit faire plus de 2 caractères'
-              : 'Une description est requise'
-          }}
+        <mat-error *ngIf="isFieldInvalid('description')">
+          {{ getErrorMessage('description', 'required') }}
+          {{ getErrorMessage('description', 'minlength') }}
         </mat-error>
       </mat-form-field>
       <mat-form-field>
         <mat-label>Image</mat-label>
         <input matInput formControlName="imageUrl" />
-        <mat-error
-          *ngIf="
-            (createPokemonForm.get('imageUrl')?.invalid ||
-              createPokemonForm.get('imageUrl')?.hasError('pattern')) &&
-            (createPokemonForm.get('imageUrl')?.dirty ||
-              createPokemonForm.get('imageUrl')?.touched)
-          ">
-          {{
-            createPokemonForm.get('imageUrl')?.hasError('pattern')
-              ? 'Cela ne ressemble pas à une Url'
-              : 'Un URL est requis'
-          }}
+        <mat-error *ngIf="isFieldInvalid('imageUrl')">
+          {{ getErrorMessage('imageUrl', 'required') }}
+          {{ getErrorMessage('imageUrl', 'pattern') }}
         </mat-error>
       </mat-form-field>
       <button
